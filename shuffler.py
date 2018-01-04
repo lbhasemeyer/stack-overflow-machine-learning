@@ -8,9 +8,9 @@ def shuffler(filename):
 
 
 def main(outputfilename):
-  shuffler('./survey_results_cut_down.csv').to_csv(outputfilename, sep=',')
-  test_data = pd.read_csv('./' + outputfilename, header=0, nrows=10278)
-  training_data = pd.read_csv('./' + outputfilename, header=0, skiprows=10278, nrows=41114)
+  # shuffler('./survey_results_cut_down.csv').to_csv(outputfilename, sep=',')
+  test_data = pd.read_csv('./survey_results_cut_down.csv', header=0, nrows=10278)
+  training_data = pd.read_csv('./' + outputfilename, header=0, skiprows=range(1, 10278), nrows=41114)
   test_data.to_csv('test_data.csv', sep=',')
   training_data.to_csv('training_data.csv', sep=',')
 
