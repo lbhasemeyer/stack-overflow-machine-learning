@@ -42,3 +42,10 @@ for _, sample in all_data.iterrows():
 # invert dictionary to look up labels later
 labels_lookup = {v: k for k, v in labels_index.items()}
 print('Loaded %s training samples with %s categories.' % (len(all_features), len(labels_index)))
+
+test_data = pandas.read_csv('./test_data.csv', usecols=['Id', 'Country', 'FormalEducation', "PronounceGIF"])
+test_features = []
+test_ids = []
+for _, sample in test_data.iterrows():
+    test_features.append([sample['Country'], sample['FormalEducation']])
+    test_ids.append(sample['Id'])
